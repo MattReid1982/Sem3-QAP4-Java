@@ -1,7 +1,7 @@
 package SRC.file;
 
 import java.io.*;
-import java.util.*;
+import SRC.Model.Drug;
 
 public class FileHandler {
     private static final String FILE_NAME = "drugs.txt";
@@ -10,9 +10,9 @@ public class FileHandler {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             writer.write(drug.toFileString());
             writer.newLine();
-            System.out.println("Drug saved to file.");
+            System.out.println("Drug successfully saved to file.");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error writing to file");
         }
     }
 
@@ -24,7 +24,7 @@ public class FileHandler {
                 System.out.println(drug);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error reading file or file does not exist.");
         }
     }
 }
